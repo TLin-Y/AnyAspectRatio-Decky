@@ -1,0 +1,15 @@
+{
+  "name": "AnyAspectRatio",
+  "author": "TLin-Y",
+  "version": "1.8.0",
+  "flags": [],
+  "api_version": 1,
+  "publish": {
+    "tags": [
+      "games",
+      "mod-management"
+    ],
+    "description": "Manage supported AnyAspectRatio game fixes on SteamOS.",
+    "image": "https://opengraph.githubassets.com/1/TLin-Y/SteamAnyAspectRatioMods"
+  }
+}
