@@ -1,25 +1,25 @@
 import hashlib
-import os
-import tempfile
 from dataclasses import dataclass, replace
-from pathlib import Path
 
+from helper import errors
 from scanner.mod_catalog import (
     ModDefinition,
+    SourceKind,
     bundled_catalog_path,
     load_mod_catalog,
     read_catalog_repository,
 )
-from scanner.mod_installer import read_url_limited, repository_file_url
+from store.mod_sources import repository_file_url
 from store.plugin_store import (
     DEFAULT_CATALOG_PATH,
     PluginStore,
     Settings,
     utc_now,
-    write_json_atomic,
 )
+from utils import files, sizes, text_files
+from utils.network import read_url_limited
 
-MAX_CATALOG_SIZE_BYTES = 2 * 1024 * 1024
+MAX_CATALOG_SIZE_BYTES = 2 * sizes.MIB
 
 
 @dataclass(frozen=True)
@@ -46,7 +46,7 @@ def _with_bundled_resolution_metadata(
         original = bundled.get(mod.mod_id)
         if (
             original is not None
-            and mod.source.kind == "archive"
+            and mod.source.kind == SourceKind.ARCHIVE
             and mod.source.sha256
             and mod.source.sha256 == original.source.sha256
             and mod.source.path == original.source.path
@@ -72,11 +72,10 @@ def load_active_catalog(store: PluginStore, settings: Settings) -> CatalogSource
     overrides = repository_overrides(settings)
     pack_catalog = store.pack_dir / (settings.catalog_path or DEFAULT_CATALOG_PATH)
     if settings.offline_mode and pack_catalog.is_file():
-        try:
+        with errors.wrap("Offline pack catalog is unusable"):
             mods = load_mod_catalog(pack_catalog, **overrides)
             return CatalogSource("cache", _with_bundled_resolution_metadata(mods, settings))
-        except (OSError, ValueError) as error:
-            raise ValueError(f"Offline pack catalog is unusable: {error}") from error
+        
     meta = store.catalog_meta()
     warning = None
     if (
@@ -89,6 +88,7 @@ def load_active_catalog(store: PluginStore, settings: Settings) -> CatalogSource
             return CatalogSource("cache", _with_bundled_resolution_metadata(mods, settings))
         except (OSError, ValueError) as error:
             warning = f"Cached catalog is unusable ({error}); using the bundled catalog."
+
     return CatalogSource(
         "bundled",
         load_mod_catalog(bundled_catalog_path(), **overrides),
@@ -107,22 +107,14 @@ def save_catalog(
     source_url: str,
 ) -> tuple[tuple[ModDefinition, ...], bool, str]:
     """Validate catalog bytes and atomically make them the cached catalog."""
-    store.ensure_directories()
-    descriptor, temporary_name = tempfile.mkstemp(dir=store.cache_dir, suffix=".json.tmp")
-    os.close(descriptor)
-    temporary_path = Path(temporary_name)
-    try:
-        temporary_path.write_bytes(content)
-        mods = load_mod_catalog(temporary_path, **repository_overrides(settings))
-        digest = hashlib.sha256(content).hexdigest()
-        previous = store.catalog_meta()
-        changed = previous is None or previous.get("sha256") != digest
-        os.replace(temporary_path, store.catalog_path)
-    finally:
-        temporary_path.unlink(missing_ok=True)
+    mods = load_mod_catalog(content=content, **repository_overrides(settings))
+    digest = hashlib.sha256(content).hexdigest()
+    previous = store.catalog_meta()
+    changed = previous is None or previous.get("sha256") != digest
+    files.write_bytes_atomic(store.catalog_path, content)
 
     fetched_at = utc_now()
-    write_json_atomic(
+    text_files.write_json_atomic(
         store.catalog_meta_path,
         {
             "fetched_at": fetched_at,
@@ -153,24 +145,22 @@ def catalog_url(settings: Settings) -> str:
 
 
 def refresh_catalog_on_start(store: PluginStore, settings: Settings) -> bool | None:
-    """Best-effort catalog refresh at plugin load; returns whether it changed, None when skipped.
+    """Best effort catalog refresh at plugin load, returns whether it changed, None when skipped.
 
-    An imported offline pack does not block the refresh: the newest online catalog wins, and pack
-    files are then used only while their checksum still matches it. Cached mod archives are only
-    dropped when the catalog actually changed.
+    An imported offline pack does not block the refresh: the newest online catalog wins.
     """
+
     if settings.offline_mode:
         return None
     url = catalog_url(settings)
     _, changed, _ = save_catalog(store, settings, _download_catalog(url), url)
     if changed:
         store.clear_archive_cache()
-        store.local_index_path.unlink(missing_ok=True)
+        store.clear_local_index()
     return changed
 
 
 def update_dependencies(store: PluginStore, settings: Settings) -> dict[str, object]:
-    """Fetch the catalog from the configured repository and drop cached mod archives."""
     url = catalog_url(settings)
     mods, changed, fetched_at = save_catalog(store, settings, _download_catalog(url), url)
     store.clear_archive_cache()

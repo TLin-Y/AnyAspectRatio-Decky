@@ -764,6 +764,39 @@
       "wine_dll_overrides": ["winmm=n,b"]
     },
     {
+      "id": "dead-cells",
+      "name": "Dead Cells - Custom Aspect Ratio",
+      "steam_app_id": "588650",
+      "install_dir": "Dead Cells",
+      "executable": "deadcells.exe",
+      "source": {
+        "kind": "archive",
+        "path": "Dead Cells/Dead-Cells-v1.0.0.zip",
+        "sha256": "a8d670ce41e3e8b0f33c1df1157409bb6e5d5c656eac1d0d065117c8b8bb5ea9"
+      },
+      "files": ["dinput8.dll", "deadcells_ARFix.asi", "deadcells_ARFix.ini"],
+      "ini_file": "deadcells_ARFix.ini",
+      "ini_resolution": [{"section": "Window", "width": "Width", "height": "Height", "kind": "pixels"}],
+      "wine_dll_overrides": ["dinput8=n,b"]
+    },
+    {
+      "id": "devil-may-cry-5",
+      "name": "Devil May Cry 5 - Custom Aspect Ratio",
+      "steam_app_id": "601150",
+      "install_dir": "Devil May Cry 5",
+      "executable": "DevilMayCry5.exe",
+      "source": {
+        "kind": "archive",
+        "path": "Devil May Cry 5/Devil-May-Cry-5-v1.0.0.zip",
+        "sha256": "2c9b9168573ed117dea18f27689f5c81a62cf965227ec9eda25acf8fba9e25c9"
+      },
+      "files": ["dinput8.dll", "DevilMayCry5_ARFix.asi", "DevilMayCry5_ARFix.ini"],
+      "ini_file": "DevilMayCry5_ARFix.ini",
+      "ini_resolution": [{"section": "AspectRatio", "width": "AspectWidth", "height": "AspectHeight", "kind": "ratio"}],
+      "display_tags": ["stretch"],
+      "wine_dll_overrides": ["dinput8=n,b"]
+    },
+    {
       "id": "sanabi",
       "name": "SANABI - Custom Aspect Ratio",
       "steam_app_id": "1562700",
@@ -803,13 +836,28 @@
       "executable": "P5R.exe",
       "source": {
         "kind": "archive",
-        "path": "Persona 5 Royal/Persona-5-Royal-v1.0.0.zip",
-        "sha256": "0fcf10469e79eca822ece610bb7d53376c4cd67f569bcbdc55aca8c2e99169ea"
+        "path": "Persona 5 Royal/Persona-5-Royal-v2.0.1.zip",
+        "sha256": "6dc7dc9b4d523e90e0ca2eea1053727f7ce76226814ebd9880648e8811c95be3"
       },
       "files": ["dinput8.dll", "P5R_ARFix.asi", "P5R_ARFix.ini"],
       "ini_file": "P5R_ARFix.ini",
       "ini_resolution": [{"section": "Resolution", "width": "Width", "height": "Height", "kind": "pixels"}],
-      "display_tags": ["stretch"],
+      "wine_dll_overrides": ["dinput8=n,b"]
+    },
+    {
+      "id": "persona-4-golden",
+      "name": "Persona 4 Golden - Custom Aspect Ratio",
+      "steam_app_id": "1113000",
+      "install_dir": "Persona 4 Golden",
+      "executable": "P4G.exe",
+      "source": {
+        "kind": "archive",
+        "path": "Persona 4 Golden/Persona-4-Golden-v1.0.0.zip",
+        "sha256": "a9396669c55ecd2227b2897b62e1de35c5b5feec4c5425006b1cf6b6524aa607"
+      },
+      "files": ["dinput8.dll", "P4G_ARFix.asi", "P4G_ARFix.ini"],
+      "ini_file": "P4G_ARFix.ini",
+      "ini_resolution": [{"section": "Resolution", "width": "Width", "height": "Height", "kind": "pixels"}],
       "wine_dll_overrides": ["dinput8=n,b"]
     },
     {
