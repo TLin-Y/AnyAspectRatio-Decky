@@ -901,8 +901,8 @@
       "executable": "re3.exe",
       "source": {
         "kind": "archive",
-        "path": "Resident Evil 3 Remake/Resident-Evil-3-Remake-v1.2.0.zip",
-        "sha256": "31506b97369b86d7629998b01e127326735587eb466d5456f8bd50e1bc4db461"
+        "path": "Resident Evil 3 Remake/Resident-Evil-3-Remake-v1.3.0.zip",
+        "sha256": "17136ee1f421e4454576c01928c0087d1ba4c0b92c1d3a8bd240ddb58cafb3dc"
       },
       "files": ["dinput8.dll", "RE3_ARFix.asi", "RE3_ARFix.ini"],
       "ini_file": "RE3_ARFix.ini",
@@ -918,8 +918,8 @@
       "executable": "re4.exe",
       "source": {
         "kind": "archive",
-        "path": "Resident Evil 4 Remake/Resident-Evil-4-Remake-v1.1.0.zip",
-        "sha256": "c11b835cf0cb2f90851ebd308f553d9e7d9eabe5aa95e357713ea24b362bb38c"
+        "path": "Resident Evil 4 Remake/Resident-Evil-4-Remake-v1.2.1.zip",
+        "sha256": "a035eccf6558820173e2885fc84b9fb15102bb26873863ee83e2b62c03f4b13d"
       },
       "files": ["dinput8.dll", "RE4_ARFix.asi", "RE4_ARFix.ini"],
       "ini_file": "RE4_ARFix.ini",
@@ -952,8 +952,8 @@
       "executable": "re8.exe",
       "source": {
         "kind": "archive",
-        "path": "Resident Evil Village/Resident-Evil-Village-v1.1.0.zip",
-        "sha256": "80efb2af6543c5a2fb9fec0a07b1515dbb3951717e703119f18fe814bcd98b42"
+        "path": "Resident Evil Village/Resident-Evil-Village-v1.2.0.zip",
+        "sha256": "499cc3ef064566fb7f7d3f2fb1fe0396f16648a2f53132955a55c8b79d84acc0"
       },
       "files": [
         "dinput8.dll",
@@ -961,6 +961,23 @@
         "RE8_AR_FOV_Fix.ini"
       ],
       "ini_file": "RE8_AR_FOV_Fix.ini",
+      "ini_resolution": [{"section": "AspectRatio", "width": "AspectWidth", "height": "AspectHeight", "kind": "ratio"}],
+      "display_tags": ["stretch"],
+      "wine_dll_overrides": ["dinput8=n,b"]
+    },
+    {
+      "id": "resident-evil-requiem",
+      "name": "Resident Evil Requiem - Custom Aspect Ratio",
+      "steam_app_id": "3764200",
+      "install_dir": "RESIDENT EVIL requiem BIOHAZARD requiem",
+      "executable": "re9.exe",
+      "source": {
+        "kind": "archive",
+        "path": "Resident Evil Requiem/Resident-Evil-Requiem-v1.0.0.zip",
+        "sha256": "e03b5ae3df2d1150e187b7f2fa7694e8fecc0a21a07f3644e120d069e9fbf0e8"
+      },
+      "files": ["dinput8.dll", "RE9_ARFix.asi", "RE9_ARFix.ini"],
+      "ini_file": "RE9_ARFix.ini",
       "ini_resolution": [{"section": "AspectRatio", "width": "AspectWidth", "height": "AspectHeight", "kind": "ratio"}],
       "display_tags": ["stretch"],
       "wine_dll_overrides": ["dinput8=n,b"]
@@ -6559,45 +6576,6 @@
         }
       ],
       "ini_file": "KINGDOM HEARTS III/Binaries/Win64/KH3-UW-config.ini"
-    },
-    {
-      "id": "rofremasterfix",
-      "name": "RESONANCE OF FATE/END OF ETERNITY ENHANCED REMASTER - RoFRemasterFix",
-      "steam_app_id": "645730",
-      "install_dir": "Resonance of Fate",
-      "executable": "Resonance of Fate.exe",
-      "source": {
-        "kind": "archive",
-        "path": "external/Lyall/RoFRemasterFix/RoFRemasterFix_0.0.1.zip",
-        "sha256": "3389736bd3490e16bf3cade56b159f1de84ebef90db79afd9c85eb927b9a9b87"
-      },
-      "files": [
-        "LICENSES.txt",
-        "RoFRemasterFix.asi",
-        "RoFRemasterFix.ini",
-        "winmm.dll"
-      ],
-      "wine_dll_overrides": [
-        "winmm=n,b"
-      ],
-      "credits": [
-        {
-          "name": "Lyall",
-          "url": "https://codeberg.org/Lyall",
-          "support": [
-            {
-              "label": "Patreon",
-              "url": "https://www.patreon.com/Wintermance"
-            },
-            {
-              "label": "Ko-fi",
-              "url": "https://ko-fi.com/W7W01UAI9"
-            }
-          ]
-        }
-      ],
-      "ini_file": "RoFRemasterFix.ini",
-      "ini_resolution": [{"section": "Custom Resolution", "width": "Width", "height": "Height", "kind": "pixels"}]
     },
     {
       "id": "daemon-x-machina-titanic-scion-widescreen-fix",
