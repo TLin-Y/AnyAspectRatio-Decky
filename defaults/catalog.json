@@ -40,6 +40,23 @@
       "wine_dll_overrides": []
     },
     {
+      "id": "astlibra-revision",
+      "name": "ASTLIBRA Revision - Custom Aspect Ratio",
+      "steam_app_id": "1718570",
+      "install_dir": "ASTLIBRA",
+      "executable": "ASTLIBRA.exe",
+      "source": {
+        "kind": "archive",
+        "path": "ASTLIBRA Revision/ASTLIBRA-Revision-v1.0.0.zip",
+        "sha256": "099e42ac2d897215da5146c38d8352653485e3372ff440f2b145732569d3f51c"
+      },
+      "files": ["xinput1_4.dll", "ASTLIBRA_ARFix.asi", "ASTLIBRA_ARFix.ini"],
+      "ini_file": "ASTLIBRA_ARFix.ini",
+      "ini_resolution": [{"section": "Display", "width": "Width", "height": "Height", "kind": "pixels"}],
+      "display_tags": ["ultrawide-wip"],
+      "wine_dll_overrides": ["xinput1_4=n,b"]
+    },
+    {
       "id": "bloodstained-ritual-of-the-night",
       "name": "Bloodstained: Ritual of the Night - Custom Aspect Ratio",
       "steam_app_id": "692850",
@@ -56,6 +73,57 @@
       "ini_file": "BloodstainedRotN/Binaries/Win64/BloodstainedARFix.ini",
       "ini_resolution": [{"section": "Resolution", "width": "Width", "height": "Height", "kind": "pixels"}],
       "wine_dll_overrides": ["winhttp=n,b", "msvcp140,vcruntime140,vcruntime140_1=b"]
+    },
+    {
+      "id": "brotato",
+      "name": "Brotato - Any Aspect Ratio",
+      "steam_app_id": "1942280",
+      "install_dir": "Brotato",
+      "executable": "Brotato.exe",
+      "source": {
+        "kind": "archive",
+        "path": "Brotato/Brotato-v1.0.0.zip",
+        "sha256": "ba239f05764936e40d7719caf710e44298cea73909a9df7b9cb5024ad01ab151"
+      },
+      "files": ["override.cfg", "AnyAspectRatio.gd"],
+      "ini_file": null,
+      "display_tags": ["fullscreen"],
+      "wine_dll_overrides": []
+    },
+    {
+      "id": "code-vein",
+      "name": "CODE VEIN - Custom Aspect Ratio",
+      "steam_app_id": "678960",
+      "install_dir": "CODE VEIN",
+      "executable": "CodeVein/Binaries/Win64/CodeVein-Win64-Shipping.exe",
+      "executable_alternatives": ["CodeVein.exe"],
+      "source": {
+        "kind": "archive",
+        "path": "CODE VEIN/CODE-VEIN-v1.0.0.zip",
+        "sha256": "91d751ed9ea97caa5d322f0634041559d8835aac1667eb54a9f8c271ac5ae03a",
+        "destination": "CodeVein/Binaries/Win64"
+      },
+      "files": ["CodeVein/Binaries/Win64/winhttp.dll", "CodeVein/Binaries/Win64/CodeVein_ARFix.asi", "CodeVein/Binaries/Win64/CodeVein_ARFix.ini"],
+      "ini_file": "CodeVein/Binaries/Win64/CodeVein_ARFix.ini",
+      "wine_dll_overrides": ["winhttp=n,b"]
+    },
+    {
+      "id": "dragonsword-awakening",
+      "name": "DragonSword: Awakening - Custom Aspect Ratio",
+      "steam_app_id": "4570720",
+      "install_dir": "DragonSword  Awakening",
+      "executable": "DS/Binaries/Win64/DSClient-Win64-Shipping.exe",
+      "executable_alternatives": ["DSClient.exe"],
+      "source": {
+        "kind": "archive",
+        "path": "DragonSword Awakening/DragonSword-Awakening-v1.0.0.zip",
+        "sha256": "a42cf114116cf454bf5d4f1a12c52ed55f06c7aaf1293b5c15c63f60db699907",
+        "destination": "DS/Binaries/Win64"
+      },
+      "files": ["DS/Binaries/Win64/winmm.dll", "DS/Binaries/Win64/DSClient_ARFix.asi", "DS/Binaries/Win64/DSClient_ARFix.ini"],
+      "ini_file": "DS/Binaries/Win64/DSClient_ARFix.ini",
+      "ini_resolution": [{"section": "Resolution", "width": "Width", "height": "Height", "kind": "pixels"}],
+      "wine_dll_overrides": ["winmm=n,b"]
     },
     {
       "id": "sonic-x-shadow-generations",
@@ -166,8 +234,8 @@
       "executable": "DWORIGINS.exe",
       "source": {
         "kind": "archive",
-        "path": "Dynasty Warriors Origins/Dynasty-Warriors-Origins-v1.0.0.zip",
-        "sha256": "16d4eb4596e7c33ed5ced98fe7276b80399d1f8621d15051bf58ba99b2f25cf3"
+        "path": "Dynasty Warriors Origins/Dynasty-Warriors-Origins-v1.1.1.zip",
+        "sha256": "929cb2ea329274a6deba4c0581cff70a4bf7456925086840fdcba9feb639db37"
       },
       "files": ["dinput8.dll", "DWOriginsFix.asi", "DWOriginsFix.ini"],
       "ini_file": "DWOriginsFix.ini",
@@ -282,13 +350,12 @@
       "executable": "MonsterHunterRise.exe",
       "source": {
         "kind": "archive",
-        "path": "Monster Hunter Rise/Monster-Hunter-Rise-v1.1.0.zip",
-        "sha256": "ed980b2058221d087adc2dc2b746ef9d9a411643d66caa04b1defc14840b5ae5"
+        "path": "Monster Hunter Rise/Monster-Hunter-Rise-v1.2.0.zip",
+        "sha256": "1339e4ba1a0b2d79a16f460198710a373585e166586a7243e854de8faef42806"
       },
       "files": ["dinput8.dll", "MHRiseFix.asi", "MHRiseFix.ini"],
       "ini_file": "MHRiseFix.ini",
       "ini_resolution": [{"section": "AspectRatio", "width": "TargetWidth", "height": "TargetHeight", "kind": "ratio"}],
-      "display_tags": ["stretch"],
       "wine_dll_overrides": ["dinput8=n,b"]
     },
     {
@@ -521,6 +588,7 @@
       ],
       "ini_file": "NinjaGaidenMCFix.ini",
       "ini_resolution": [{"section": "Custom Resolution", "width": "Width", "height": "Height", "kind": "pixels"}],
+      "display_tags": ["large-download-158mb"],
       "wine_dll_overrides": ["dinput8=n,b"]
     },
     {
@@ -538,6 +606,22 @@
       "ini_file": "Nioh_ARFix.ini",
       "ini_resolution": [{"section": "Resolution", "width": "Width", "height": "Height", "kind": "pixels"}],
       "display_tags": ["launcher-1920x1080-high"],
+      "wine_dll_overrides": ["dinput8=n,b"]
+    },
+    {
+      "id": "onimusha-way-of-the-sword",
+      "name": "Onimusha: Way of the Sword - Custom Aspect Ratio",
+      "steam_app_id": "2638890",
+      "install_dir": "OnimushaWotS",
+      "executable": "OnimushaWotS.exe",
+      "source": {
+        "kind": "archive",
+        "path": "Onimusha Way of the Sword/Onimusha-Way-of-the-Sword-v1.0.0.zip",
+        "sha256": "42248a62c2af4065b6b7cbc9dff7ecf5d90aafec4a2a5f08b24aad48e47d75fb"
+      },
+      "files": ["dinput8.dll", "OnimushaWotS_ARFix.asi", "OnimushaWotS_ARFix.ini"],
+      "ini_file": "OnimushaWotS_ARFix.ini",
+      "ini_resolution": [{"section": "Window", "width": "Width", "height": "Height", "kind": "pixels"}],
       "wine_dll_overrides": ["dinput8=n,b"]
     },
     {
@@ -679,8 +763,8 @@
       "executable": "Pentiment.exe",
       "source": {
         "kind": "archive",
-        "path": "Pentiment/Pentiment-v0.2.0.zip",
-        "sha256": "7bf3cd75cde831eba2b05e7686117f8eb08e74b4f2973379e6f149a54f581624"
+        "path": "Pentiment/Pentiment-v0.2.1.zip",
+        "sha256": "2383ea4ada9ab2df49b235e19fc2c5d22574f37ab195c632b9ec9c003fb25bef"
       },
       "files": ["winhttp.dll", "Pentiment_ARFix.asi", "Pentiment_ARFix.ini"],
       "ini_file": "Pentiment_ARFix.ini",
@@ -780,6 +864,22 @@
       "wine_dll_overrides": ["dinput8=n,b"]
     },
     {
+      "id": "devil-may-cry-4-special-edition",
+      "name": "Devil May Cry 4 Special Edition - Custom Aspect Ratio",
+      "steam_app_id": "329050",
+      "install_dir": "Special Edition",
+      "executable": "DevilMayCry4SpecialEdition.exe",
+      "source": {
+        "kind": "archive",
+        "path": "Devil May Cry 4 Special Edition/Devil-May-Cry-4-Special-Edition-v1.0.0.zip",
+        "sha256": "401a5ae685ee9a0ca42e900b84f93bc9fcf3a51f9692155b677524c8b0b97a0e"
+      },
+      "files": ["dinput8.dll", "DevilMayCry4SpecialEdition_ARFix.asi", "DevilMayCry4SpecialEdition_ARFix.ini"],
+      "ini_file": "DevilMayCry4SpecialEdition_ARFix.ini",
+      "ini_resolution": [{"section": "Resolution", "width": "Width", "height": "Height", "kind": "pixels"}],
+      "wine_dll_overrides": ["dinput8=n,b"]
+    },
+    {
       "id": "devil-may-cry-5",
       "name": "Devil May Cry 5 - Custom Aspect Ratio",
       "steam_app_id": "601150",
@@ -794,6 +894,40 @@
       "ini_file": "DevilMayCry5_ARFix.ini",
       "ini_resolution": [{"section": "AspectRatio", "width": "AspectWidth", "height": "AspectHeight", "kind": "ratio"}],
       "display_tags": ["stretch"],
+      "wine_dll_overrides": ["dinput8=n,b"]
+    },
+    {
+      "id": "dmc-devil-may-cry",
+      "name": "DmC Devil May Cry - Custom Aspect Ratio",
+      "steam_app_id": "220440",
+      "install_dir": "DmC Devil May Cry",
+      "executable": "Binaries/Win32/DMC-DevilMayCry.exe",
+      "source": {
+        "kind": "archive",
+        "path": "DmC Devil May Cry/DmC-Devil-May-Cry-v1.0.0.zip",
+        "sha256": "2e84f2c5ddc2757b7880d1a7cf5d8c1e1853bc097e09c71238745efd670b231e",
+        "destination": "Binaries/Win32"
+      },
+      "files": ["Binaries/Win32/dinput8.dll", "Binaries/Win32/DMC-DevilMayCry_ARFix.asi", "Binaries/Win32/DMC-DevilMayCry_ARFix.ini"],
+      "display_tags": ["set-window-mode"],
+      "ini_file": "Binaries/Win32/DMC-DevilMayCry_ARFix.ini",
+      "ini_resolution": [{"section": "Resolution", "width": "Width", "height": "Height", "kind": "pixels"}],
+      "wine_dll_overrides": ["dinput8=n,b"]
+    },
+    {
+      "id": "detroit-become-human",
+      "name": "Detroit: Become Human - Custom Aspect Ratio",
+      "steam_app_id": "1222140",
+      "install_dir": "Detroit Become Human",
+      "executable": "DetroitBecomeHuman.exe",
+      "source": {
+        "kind": "archive",
+        "path": "Detroit Become Human/Detroit-Become-Human-v1.0.0.zip",
+        "sha256": "3c5756bf61c63f7edf491c4d25bfb6c81f0976a8b4afd14aa1ee6d864c6c5f81"
+      },
+      "files": ["dinput8.dll", "DetroitBecomeHuman_ARFix.asi", "DetroitBecomeHuman_ARFix.ini"],
+      "ini_file": "DetroitBecomeHuman_ARFix.ini",
+      "ini_resolution": [{"section": "Resolution", "width": "Width", "height": "Height", "kind": "pixels"}],
       "wine_dll_overrides": ["dinput8=n,b"]
     },
     {
@@ -819,8 +953,8 @@
       "executable": "Pal/Binaries/Win64/Palworld-Win64-Shipping.exe",
       "source": {
         "kind": "archive",
-        "path": "Palworld/Palworld-v1.0.0.zip",
-        "sha256": "b3fe133b223b7d2da2822bfafee745e20a95e4e387b3fef3f0c60450add49ff6",
+        "path": "Palworld/Palworld-v1.1.0.zip",
+        "sha256": "13f5423e55c7a2d7f459d63dbd2a43f74ac4cc883497668d2b6cee806b2d400e",
         "destination": "Pal/Binaries/Win64"
       },
       "files": ["Pal/Binaries/Win64/winmm.dll", "Pal/Binaries/Win64/Palworld_ARFix.asi", "Pal/Binaries/Win64/Palworld_ARFix.ini"],
@@ -836,10 +970,11 @@
       "executable": "P5R.exe",
       "source": {
         "kind": "archive",
-        "path": "Persona 5 Royal/Persona-5-Royal-v2.0.1.zip",
-        "sha256": "6dc7dc9b4d523e90e0ca2eea1053727f7ce76226814ebd9880648e8811c95be3"
+        "path": "Persona 5 Royal/Persona-5-Royal-v2.4.3.zip",
+        "sha256": "06a754818061fb4fb43f506436d4b16dc36052d582e0f96dddf68cf5c9ecbd22"
       },
       "files": ["dinput8.dll", "P5R_ARFix.asi", "P5R_ARFix.ini"],
+      "display_tags": ["set-window-mode"],
       "ini_file": "P5R_ARFix.ini",
       "ini_resolution": [{"section": "Resolution", "width": "Width", "height": "Height", "kind": "pixels"}],
       "wine_dll_overrides": ["dinput8=n,b"]
@@ -852,8 +987,8 @@
       "executable": "P4G.exe",
       "source": {
         "kind": "archive",
-        "path": "Persona 4 Golden/Persona-4-Golden-v1.1.2.zip",
-        "sha256": "809b4412622e32672b71365d596fc943a8509e5fc647fb9ba0c5929f8e7aca60"
+        "path": "Persona 4 Golden/Persona-4-Golden-v1.3.3.zip",
+        "sha256": "15b4ba3a19052d56315e3945a492d39baadbc9eb67542c82affcefcb802d3626"
       },
       "files": ["dinput8.dll", "P4G_ARFix.asi", "P4G_ARFix.ini"],
       "ini_file": "P4G_ARFix.ini",
@@ -884,13 +1019,12 @@
       "executable": "re2.exe",
       "source": {
         "kind": "archive",
-        "path": "Resident Evil 2 Remake/Resident-Evil-2-Remake-v1.2.0.zip",
-        "sha256": "fc8cd52274f2e4b0bea68e49e0ce9d6aafc95d3d6008835dc0ab720bbca85534"
+        "path": "Resident Evil 2 Remake/Resident-Evil-2-Remake-v1.3.0.zip",
+        "sha256": "93100dee96a2df555e86de8a60b518bcc1e7baaa57cbff0c74fa9fd24f14ba0c"
       },
       "files": ["dinput8.dll", "RE2_ARFix.asi", "RE2_ARFix.ini"],
       "ini_file": "RE2_ARFix.ini",
       "ini_resolution": [{"section": "AspectRatio", "width": "AspectWidth", "height": "AspectHeight", "kind": "ratio"}],
-      "display_tags": ["stretch"],
       "wine_dll_overrides": ["dinput8=n,b"]
     },
     {
@@ -901,13 +1035,12 @@
       "executable": "re3.exe",
       "source": {
         "kind": "archive",
-        "path": "Resident Evil 3 Remake/Resident-Evil-3-Remake-v1.3.0.zip",
-        "sha256": "17136ee1f421e4454576c01928c0087d1ba4c0b92c1d3a8bd240ddb58cafb3dc"
+        "path": "Resident Evil 3 Remake/Resident-Evil-3-Remake-v1.4.0.zip",
+        "sha256": "e5000c2cdede16fa9fd973fd0721c2417d910c17612ad280b57ccb1d3d993cc4"
       },
       "files": ["dinput8.dll", "RE3_ARFix.asi", "RE3_ARFix.ini"],
       "ini_file": "RE3_ARFix.ini",
       "ini_resolution": [{"section": "AspectRatio", "width": "AspectWidth", "height": "AspectHeight", "kind": "ratio"}],
-      "display_tags": ["stretch"],
       "wine_dll_overrides": ["dinput8=n,b"]
     },
     {
@@ -935,8 +1068,8 @@
       "executable": "re7.exe",
       "source": {
         "kind": "archive",
-        "path": "Resident Evil 7/Resident-Evil-7-v1.1.0.zip",
-        "sha256": "d6b5ec24e20eb61e98aa392064c5779146d3301c789637d017acfdf3490e36ec"
+        "path": "Resident Evil 7/Resident-Evil-7-v1.2.0.zip",
+        "sha256": "a99b9be0a36a64e48ae39db7cc215ced83b090fedd67edf5bdfe7e76d4b8f2f6"
       },
       "files": ["dinput8.dll", "RE7_ARFix.asi", "RE7_ARFix.ini"],
       "ini_file": "RE7_ARFix.ini",
@@ -1005,39 +1138,19 @@
     },
     {
       "id": "trials-of-mana",
-      "name": "Trials of Mana - WIP Aspect Ratio Fix",
+      "name": "Trials of Mana - Custom Aspect Ratio",
       "steam_app_id": "924980",
       "install_dir": "Trials of Mana",
       "executable": "Trials of Mana/Binaries/Win64/Trials of Mana-Win64-Shipping.exe",
       "source": {
-        "kind": "files",
-        "file_hashes": {
-          "Trials of Mana/Binaries/Win64/dxgi.dll": "fa266e3513d02c08a1b808f28c10538a489eaffaa4b0707f7cc1066e71b5afd7",
-          "Trials of Mana/Binaries/Win64/TrailsOfMana_ARFix.asi": "02e4cb5dd71ab266300f8cf20aeed592a6d5b44163285096e2f175bf772c6f0e",
-          "Trials of Mana/Binaries/Win64/TrailsOfMana_ARFix.ini": "90cc22eaea40d8a59c2157b3e55f6fad7b0494dddb5813fe2a170f490e7dd3b8"
-        },
-        "files": [
-          {
-            "path": "Trials of Mana (WIP)/dxgi.dll",
-            "destination": "Trials of Mana/Binaries/Win64/dxgi.dll"
-          },
-          {
-            "path": "Trials of Mana (WIP)/TrailsOfMana_ARFix.asi",
-            "destination": "Trials of Mana/Binaries/Win64/TrailsOfMana_ARFix.asi"
-          },
-          {
-            "path": "Trials of Mana (WIP)/TrailsOfMana_ARFix.ini",
-            "destination": "Trials of Mana/Binaries/Win64/TrailsOfMana_ARFix.ini"
-          }
-        ]
+        "kind": "archive",
+        "path": "Trials of Mana/Trials-of-Mana-v1.0.1.zip",
+        "sha256": "1dbd8343dbca320d87d72b02744a20906c849e0719f0334268ada3ba91d033cf",
+        "destination": "Trials of Mana/Binaries/Win64"
       },
-      "files": [
-        "Trials of Mana/Binaries/Win64/dxgi.dll",
-        "Trials of Mana/Binaries/Win64/TrailsOfMana_ARFix.asi",
-        "Trials of Mana/Binaries/Win64/TrailsOfMana_ARFix.ini"
-      ],
-      "ini_file": "Trials of Mana/Binaries/Win64/TrailsOfMana_ARFix.ini",
-      "ini_resolution": [{"section": "Resolution", "width": "TargetWidth", "height": "TargetHeight", "kind": "pixels"}],
+      "files": ["Trials of Mana/Binaries/Win64/dxgi.dll", "Trials of Mana/Binaries/Win64/TrialsOfMana_ARFix.asi", "Trials of Mana/Binaries/Win64/TrialsOfMana_ARFix.ini"],
+      "ini_file": "Trials of Mana/Binaries/Win64/TrialsOfMana_ARFix.ini",
+      "ini_resolution": [{"section": "Resolution", "width": "Width", "height": "Height", "kind": "pixels"}],
       "wine_dll_overrides": ["dxgi=n,b"]
     },
     {
@@ -3249,7 +3362,7 @@
       "source": {
         "kind": "archive",
         "path": "external/Lyall/NinjaGaidenMCFix/NinjaGaidenMCFix_0.0.1.zip",
-        "sha256": "081cdf37ca7479541c167fbf018bfb375ae5c013535122ae17ca808ea24cc50f"
+        "sha256": "921b436dd8e1121f82184a7adb388e0738ba016ff9bdbff93584d41eebae5c94"
       },
       "files": [
         "NinjaGaidenMCFix.asi",
@@ -3259,6 +3372,7 @@
       "wine_dll_overrides": [
         "winmm=n,b"
       ],
+      "display_tags": ["select-3840x2160-in-game"],
       "credits": [
         {
           "name": "Lyall",
@@ -3287,7 +3401,7 @@
       "source": {
         "kind": "archive",
         "path": "external/Lyall/NinjaGaidenMCFix/NinjaGaidenMCFix_0.0.1.zip",
-        "sha256": "081cdf37ca7479541c167fbf018bfb375ae5c013535122ae17ca808ea24cc50f"
+        "sha256": "921b436dd8e1121f82184a7adb388e0738ba016ff9bdbff93584d41eebae5c94"
       },
       "files": [
         "NinjaGaidenMCFix.asi",
@@ -3297,6 +3411,7 @@
       "wine_dll_overrides": [
         "winmm=n,b"
       ],
+      "display_tags": ["select-3840x2160-in-game"],
       "credits": [
         {
           "name": "Lyall",

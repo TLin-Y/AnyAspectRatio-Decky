@@ -1,7 +1,10 @@
 import { ButtonItem, DialogButton, PanelSection, PanelSectionRow, ToggleField } from "@decky/ui";
 import { MOD_LOG_BUTTON_STYLE } from "../../services/formatters";
+import { DESKTOP_ACTIONS } from "../../services/platform";
 import type { SupportedGame } from "../../services/types";
 import { GameTitle } from "./GameDetails";
+
+const DESKTOP_BUTTON_STYLE = { flex: "1 1 0", minWidth: 0, height: "36px", padding: "4px" };
 
 type Props = {
   first: SupportedGame;
@@ -10,6 +13,8 @@ type Props = {
   groupId: string | null | undefined;
   toggleRevision: number;
   updating: boolean;
+  /** The step this game's mod change is on, while it runs. */
+  progress: string | null;
   readmeLoading: boolean;
   onSelect: () => void;
   onApply: (game: SupportedGame, applied: boolean) => void;
@@ -20,7 +25,7 @@ type Props = {
 };
 
 export function GameCard({
-  first, game, index, groupId, toggleRevision, updating, readmeLoading,
+  first, game, index, groupId, toggleRevision, updating, progress, readmeLoading,
   onSelect, onApply, onClear, onEdit, onReadme, onLog,
 }: Props) {
   if (!game) {
@@ -70,9 +75,18 @@ export function GameCard({
       )}
       <PanelSectionRow>
         <div style={{ display: "flex", gap: "8px", justifyContent: "center", width: "100%" }}>
+          {DESKTOP_ACTIONS && (
+            <DialogButton
+              style={DESKTOP_BUTTON_STYLE}
+              onClick={() => DESKTOP_ACTIONS?.openFolder(game)}
+              disabled={!game.game_path}
+            >
+              Open
+            </DialogButton>
+          )}
           {!game.manual && (
             <DialogButton
-              style={{ flex: "0 0 30%", height: "36px", padding: "4px" }}
+              style={DESKTOP_ACTIONS ? DESKTOP_BUTTON_STYLE : { flex: "0 0 30%", height: "36px", padding: "4px" }}
               onClick={() => onEdit(game)}
               disabled={updating || !game.game_path}
             >
@@ -80,12 +94,23 @@ export function GameCard({
             </DialogButton>
           )}
           <DialogButton
-            style={{ flex: game.manual ? "0 0 60%" : "0 0 30%", height: "36px", padding: "4px" }}
+            style={DESKTOP_ACTIONS
+              ? DESKTOP_BUTTON_STYLE
+              : { flex: game.manual ? "0 0 60%" : "0 0 30%", height: "36px", padding: "4px" }}
             onClick={() => onReadme(game)}
             disabled={readmeLoading}
           >
             ReadMe
           </DialogButton>
+          {DESKTOP_ACTIONS && game.wine_dll_overrides.length > 0 && (
+            <DialogButton
+              style={DESKTOP_BUTTON_STYLE}
+              onClick={() => DESKTOP_ACTIONS?.showWineOverrides(game)}
+              disabled={!game.game_path}
+            >
+              Wine
+            </DialogButton>
+          )}
         </div>
       </PanelSectionRow>
       {game.manual ? (
@@ -115,8 +140,10 @@ export function GameCard({
             </PanelSectionRow>
           )}
           <PanelSectionRow>
-            <div>
-              {game.file_status === "complete"
+            <div role="status" style={progress ? { color: "#ffd84d" } : undefined}>
+              {progress
+                ? `${progress}...`
+                : game.file_status === "complete"
                 ? `Applied ${game.files_present.length} mod files`
                 : game.file_status === "partial"
                   ? `* Incomplete — ${game.files_present.length}/${game.files_present.length + game.files_missing.length} mod files present`

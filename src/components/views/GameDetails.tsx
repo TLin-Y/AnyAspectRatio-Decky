@@ -1,7 +1,7 @@
 import { ButtonItem, PanelSectionRow } from "@decky/ui";
 import ReactMarkdown from "react-markdown";
 import { isEditableIniLine } from "../../services/modals";
-import type { ModLogResult, SupportedGame } from "../../services/types";
+import { isFolderGame, type ModLogResult, type SupportedGame } from "../../services/types";
 import { EditableValue } from "./EditableValue";
 
 export function GameTitle({ game, index, unresolved = false }: {
@@ -18,7 +18,7 @@ export function GameTitle({ game, index, unresolved = false }: {
       {game.offline_only && " (Offline)"}
       {game.source_kind === "local_archive" && " (Custom)"}
       {game.update_available && " (New)"}
-      {(unresolved || game.matched_by_executable) && " (.exe)"}
+      {isFolderGame(game) ? " (Folder)" : (unresolved || game.matched_by_executable) && " (.exe)"}
     </strong>
   );
 }
@@ -42,7 +42,7 @@ export function GameDetails({ game, view, readme, logs, ini, onBack, onIniCommit
       <PanelSectionRow><GameTitle game={game} /></PanelSectionRow>
       {view === "readme" ? (
         <PanelSectionRow>
-          <div style={{ maxHeight: "60vh", overflowY: "auto", overflowWrap: "anywhere" }}>
+          <div className="aar-scroll-pane aar-readme" style={{ maxHeight: "60vh", overflowY: "auto", overflowWrap: "anywhere" }}>
             {readme.loading ? "Loading ReadMe..." : (
               <>
                 <div style={{ opacity: 0.7, fontSize: "0.85em" }}>
@@ -56,7 +56,7 @@ export function GameDetails({ game, view, readme, logs, ini, onBack, onIniCommit
         </PanelSectionRow>
       ) : view === "log" ? (
         <PanelSectionRow>
-          <div style={{ maxHeight: "60vh", overflowY: "auto", overflowWrap: "anywhere", width: "100%" }}>
+          <div className="aar-scroll-pane" style={{ maxHeight: "60vh", overflowY: "auto", overflowWrap: "anywhere", width: "100%" }}>
             {logs ? logs.map((entry) => (
               <div key={entry.name}>
                 <strong>{entry.name}</strong>

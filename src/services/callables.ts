@@ -3,7 +3,7 @@ import type { SupportedGameReport, PluginSettingsInfo, PluginUpdateInfo, Credits
 
 // Must match "name" in plugin.json and PLUGIN_NAME in helper/__init__.py.
 export const PLUGIN_NAME = "AnyAspectRatio";
-export const PLUGIN_VERSION = "1.9";
+export const PLUGIN_VERSION = "2.0";
 
 export const DEFAULT_PICKER_DIRECTORY = "/home/deck/Downloads";
 
@@ -25,6 +25,10 @@ export const savePluginSettings = callable<
   [string, string, string, string, string, string],
   { saved: boolean; source_changed: boolean }
 >("save_settings");
+
+export const addCustomGameDir = callable<[string], { custom_game_dirs: string[] }>("add_custom_game_dir");
+
+export const removeCustomGameDir = callable<[string], { custom_game_dirs: string[] }>("remove_custom_game_dir");
 
 export const setOfflineMode = callable<[boolean], { offline_mode: boolean; warning?: string | null }>("set_offline_mode");
 
