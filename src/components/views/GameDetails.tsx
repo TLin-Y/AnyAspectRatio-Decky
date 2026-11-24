@@ -1,19 +1,28 @@
 import { ButtonItem, PanelSectionRow } from "@decky/ui";
 import ReactMarkdown from "react-markdown";
+import { APPLIED_BLUE } from "../../services/formatters";
 import { isEditableIniLine } from "../../services/modals";
 import { isFolderGame, type ModLogResult, type SupportedGame } from "../../services/types";
 import { EditableValue } from "./EditableValue";
 
+// Tags hold only letters, digits, - and _, so "4x3-to-16x9" stands for "4:3 -> 16:9".
+function tagLabel(tag: string): string {
+  return tag
+    .replace(/[-_]/g, " ")
+    .replace(/(\d+)x(\d+) to (\d+)x(\d+)/g, "$1:$2 -> $3:$4")
+    .replace(/\b\w/g, (letter) => letter.toUpperCase());
+}
+
 export function GameTitle({ game, index, unresolved = false }: {
   game: SupportedGame; index?: number; unresolved?: boolean;
 }) {
-  const color = unresolved ? "#9e9e9e" : game.manual ? "#ff9830" : game.matched_by_executable ? "#9e9e9e" : "#64b5f6";
+  const color = unresolved ? "#9e9e9e" : game.manual ? "#ff9830" : game.matched_by_executable ? "#9e9e9e" : APPLIED_BLUE;
   return (
     <strong style={{ display: "block", overflowWrap: "anywhere", color }}>
       {index !== undefined && `${index + 1}. `}
       {game.app_name}
       {[...(game.display_tags ?? []), ...(game.manual ? ["manual"] : [])].map((tag) =>
-        ` (${tag.replace(/[-_]/g, " ").replace(/\b\w/g, (letter) => letter.toUpperCase())})`,
+        ` (${tagLabel(tag)})`,
       )}
       {game.offline_only && " (Offline)"}
       {game.source_kind === "local_archive" && " (Custom)"}
@@ -22,6 +31,31 @@ export function GameTitle({ game, index, unresolved = false }: {
     </strong>
   );
 }
+
+// img.shields.io/badge/<label>-<message>-<color>: "--" is a dash, "__" an underscore, "_" a space.
+const SHIELDS_BADGE = /^https:\/\/img\.shields\.io\/badge\/([^?]+)/;
+
+// The desktop app blocks remote images, so shields.io badges are drawn from their URL text.
+function ReadmeImage({ src, alt }: { src?: string; alt?: string }) {
+  const parts = SHIELDS_BADGE.exec(src ?? "")?.[1].split(/(?<!-)-(?!-)/).map((part) =>
+    decodeURIComponent(part.replace(/--/g, "-").replace(/__?/g, (s) => (s.length === 2 ? "_" : " "))));
+  if (parts?.length !== 3) return <img src={src} alt={alt} />;
+  const [label, message, color] = parts;
+  const cell = { padding: "4px 8px" };
+  return (
+    <span title={alt} style={{
+      display: "inline-flex", borderRadius: 3, overflow: "hidden", verticalAlign: "middle", margin: "2px 0",
+      color: "#fff", fontSize: "0.75em", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase",
+    }}>
+      <span style={{ ...cell, background: "#555" }}>{label}</span>
+      <span style={{ ...cell, background: /^[0-9a-f]{3,8}$/i.test(color) ? `#${color}` : color }}>{message}</span>
+    </span>
+  );
+}
+
+export const LogText = ({ text }: { text: string }) => (
+  <pre style={{ whiteSpace: "pre-wrap", overflowWrap: "anywhere" }}>{text}</pre>
+);
 
 type Props = {
   game: SupportedGame;
@@ -49,7 +83,9 @@ export function GameDetails({ game, view, readme, logs, ini, onBack, onIniCommit
                   Game folder: {game.game_path ?? "unknown"}
                 </div>
                 <strong>{readme.title}</strong>
-                <ReactMarkdown>{readme.content}</ReactMarkdown>
+                <ReactMarkdown components={{ img: ({ src, alt }) => <ReadmeImage src={typeof src === "string" ? src : undefined} alt={alt} /> }}>
+                  {readme.content}
+                </ReactMarkdown>
               </>
             )}
           </div>
@@ -65,7 +101,7 @@ export function GameDetails({ game, view, readme, logs, ini, onBack, onIniCommit
                 ) : (
                   <>
                     {entry.truncated && <div>Showing the last 256 KiB of this log.</div>}
-                    <pre style={{ whiteSpace: "pre-wrap", overflowWrap: "anywhere" }}>{entry.content}</pre>
+                    <LogText text={entry.content} />
                   </>
                 )}
               </div>
