@@ -157,6 +157,21 @@
       "wine_dll_overrides": ["winmm=n,b"]
     },
     {
+      "id": "sonic-frontiers",
+      "name": "Sonic Frontiers - Custom Aspect Ratio",
+      "steam_app_id": "1237320",
+      "install_dir": "SonicFrontiers",
+      "executable": "SonicFrontiers.exe",
+      "source": {
+        "kind": "archive",
+        "path": "Sonic Frontiers/Sonic-Frontiers-v1.0.0.zip",
+        "sha256": "5400dacd592a3071cfa1e95fbd5d92dbf0241caea4b6c52d42c2a00285d8d8cb"
+      },
+      "files": ["dinput8.dll", "SonicFrontiers_ARFix.asi", "SonicFrontiers_ARFix.ini"],
+      "ini_file": "SonicFrontiers_ARFix.ini",
+      "wine_dll_overrides": ["dinput8=n,b"]
+    },
+    {
       "id": "star-ocean-the-second-story-r",
       "name": "STAR OCEAN THE SECOND STORY R - Custom Aspect Ratio",
       "steam_app_id": "2238900",
@@ -232,8 +247,8 @@
       "executable": "DW6_WIN.exe",
       "source": {
         "kind": "archive",
-        "path": "Dynasty Warriors 6/Dynasty-Warriors-6-v1.0.0.zip",
-        "sha256": "64e3853f9836601bf40e11610b86810e090197b8893f8a4b55208a3d75281df7"
+        "path": "Dynasty Warriors 6/Dynasty-Warriors-6-v1.1.0.zip",
+        "sha256": "3f3af6cc55eb56c5d0c52b67cacecfe05ed65106c5399cb300ff0ad3d0a754d5"
       },
       "files": ["dinput8.dll", "DW6_ARFix.asi", "DW6_ARFix.ini"],
       "ini_file": "DW6_ARFix.ini",
@@ -249,11 +264,27 @@
       "executable_alternatives": ["SM6JP.exe", "SM6TC.exe"],
       "source": {
         "kind": "archive",
-        "path": "DYNASTY WARRIORS 7 Xtreme Legends Definitive Edition/Dynasty-Warriors-7-Xtreme-Legends-Definitive-Edition-v1.1.0.zip",
-        "sha256": "bd4b5be2dbe695a046cbd692c581feb13b1f7e245f6781f2913913667c69cf12"
+        "path": "DYNASTY WARRIORS 7 Xtreme Legends Definitive Edition/Dynasty-Warriors-7-Xtreme-Legends-Definitive-Edition-v1.2.0.zip",
+        "sha256": "2b83aff23c1771699abc209f6ab79677613ec50df75c16da7680ea216cb30b4b"
       },
       "files": ["dinput8.dll", "DW7XL_ARFix.asi", "DW7XL_ARFix.ini"],
       "ini_file": "DW7XL_ARFix.ini",
+      "ini_resolution": [{"section": "Resolution", "width": "Width", "height": "Height", "kind": "pixels"}],
+      "wine_dll_overrides": ["dinput8=n,b"]
+    },
+    {
+      "id": "dynasty-warriors-8-empires",
+      "name": "Dynasty Warriors 8 Empires - Custom Aspect Ratio",
+      "steam_app_id": "322520",
+      "install_dir": "Dynasty Warriors 8 - Empires",
+      "executable": "Launch.exe",
+      "source": {
+        "kind": "archive",
+        "path": "Dynasty Warriors 8 Empires/Dynasty-Warriors-8-Empires-v1.0.0.zip",
+        "sha256": "d8a0ded42313cc6a88513a3660106a937bddadb966ee11d66f098031494601f9"
+      },
+      "files": ["dinput8.dll", "DW8E_ARFix.asi", "DW8E_ARFix.ini"],
+      "ini_file": "DW8E_ARFix.ini",
       "ini_resolution": [{"section": "Resolution", "width": "Width", "height": "Height", "kind": "pixels"}],
       "wine_dll_overrides": ["dinput8=n,b"]
     },
@@ -265,11 +296,43 @@
       "executable": "Launch.exe",
       "source": {
         "kind": "archive",
-        "path": "DYNASTY WARRIORS 8 Xtreme Legends Complete Edition/Dynasty-Warriors-8-Xtreme-Legends-Complete-Edition-v1.1.0.zip",
-        "sha256": "e265d199ce291c345880a1145ba6799c83f6a85c5c9634607070a53ed80608de"
+        "path": "DYNASTY WARRIORS 8 Xtreme Legends Complete Edition/Dynasty-Warriors-8-Xtreme-Legends-Complete-Edition-v1.2.2.zip",
+        "sha256": "7afec08738d680700626938e53457fb6e569047c68424cc26fa24434157bbe3e"
       },
       "files": ["dinput8.dll", "DW8XL_ARFix.asi", "DW8XL_ARFix.ini"],
       "ini_file": "DW8XL_ARFix.ini",
+      "ini_resolution": [{"section": "Resolution", "width": "Width", "height": "Height", "kind": "pixels"}],
+      "wine_dll_overrides": ["dinput8=n,b"]
+    },
+    {
+      "id": "dynasty-warriors-9",
+      "name": "DYNASTY WARRIORS 9 - Custom Aspect Ratio",
+      "steam_app_id": "730310",
+      "install_dir": "Dynasty Warriors 9",
+      "executable": "DW9.exe",
+      "source": {
+        "kind": "archive",
+        "path": "DYNASTY WARRIORS 9/Dynasty-Warriors-9-v1.0.0.zip",
+        "sha256": "dc6b2b6c5755f89d57bddddd8ec27a323e8589d4df65f199489528d418bc5883"
+      },
+      "files": ["dinput8.dll", "DW9_ARFix.asi", "DW9_ARFix.ini"],
+      "ini_file": "DW9_ARFix.ini",
+      "ini_resolution": [{"section": "Resolution", "width": "Width", "height": "Height", "kind": "pixels"}],
+      "wine_dll_overrides": ["dinput8=n,b"]
+    },
+    {
+      "id": "dynasty-warriors-9-empires",
+      "name": "DYNASTY WARRIORS 9 Empires - Custom Aspect Ratio",
+      "steam_app_id": "1341200",
+      "install_dir": "Dynasty Warriors 9 Empires",
+      "executable": "DW9Emp.exe",
+      "source": {
+        "kind": "archive",
+        "path": "DYNASTY WARRIORS 9 Empires/Dynasty-Warriors-9-Empires-v1.0.0.zip",
+        "sha256": "0e0e7b85c40acf05fa6cc6ccd0983bec51018b5e124bcab1981967cd23a4d6e5"
+      },
+      "files": ["dinput8.dll", "DW9E_ARFix.asi", "DW9E_ARFix.ini"],
+      "ini_file": "DW9E_ARFix.ini",
       "ini_resolution": [{"section": "Resolution", "width": "Width", "height": "Height", "kind": "pixels"}],
       "wine_dll_overrides": ["dinput8=n,b"]
     },
@@ -304,6 +367,24 @@
       "ini_file": "Emperor_ARFix.ini",
       "ini_resolution": [{"section": "Window", "width": "Width", "height": "Height", "kind": "pixels"}],
       "wine_dll_overrides": []
+    },
+    {
+      "id": "final-fantasy-resonance",
+      "name": "FINAL FANTASY RESONANCE - Custom Aspect Ratio",
+      "steam_app_id": "3259780",
+      "install_dir": "FINAL FANTASY RESONANCE",
+      "executable": "FFRS/Binaries/Win64/FFRS-Win64-Shipping.exe",
+      "executable_alternatives": ["FFRS.exe"],
+      "source": {
+        "kind": "archive",
+        "path": "FINAL FANTASY RESONANCE/FINAL-FANTASY-RESONANCE-v1.0.0.zip",
+        "sha256": "75a3c0b33ea8057fe19d0d200394e337f6e091a37a774af186ba8ab76e6b7f7f",
+        "destination": "FFRS/Binaries/Win64"
+      },
+      "files": ["FFRS/Binaries/Win64/winmm.dll", "FFRS/Binaries/Win64/FFRS_ARFix.asi", "FFRS/Binaries/Win64/FFRS_ARFix.ini"],
+      "ini_file": "FFRS/Binaries/Win64/FFRS_ARFix.ini",
+      "ini_resolution": [{"section": "Resolution", "width": "Width", "height": "Height", "kind": "pixels"}],
+      "wine_dll_overrides": ["winmm=n,b"]
     },
     {
       "id": "final-fantasy-xii-the-zodiac-age",
@@ -490,6 +571,21 @@
       "wine_dll_overrides": ["dinput8=n,b"]
     },
     {
+      "id": "monster-hunter-world",
+      "name": "Monster Hunter: World - Custom Aspect Ratio",
+      "steam_app_id": "582010",
+      "install_dir": "Monster Hunter World",
+      "executable": "MonsterHunterWorld.exe",
+      "source": {
+        "kind": "archive",
+        "path": "Monster Hunter World/Monster-Hunter-World-v1.0.0.zip",
+        "sha256": "21f9bb8927e98a6ebc50ab3308550f7c3e27034d93c4cda63f0eea0eb8259ba4"
+      },
+      "files": ["dinput8.dll", "MonsterHunterWorld_ARFix.asi", "MonsterHunterWorld_ARFix.ini"],
+      "ini_file": "MonsterHunterWorld_ARFix.ini",
+      "wine_dll_overrides": ["dinput8=n,b"]
+    },
+    {
       "id": "ninja-gaiden-sigma-2",
       "name": "Ninja Gaiden Sigma 2 - Custom Aspect Ratio",
       "steam_app_id": "1580790",
@@ -524,6 +620,22 @@
       "ini_file": "Nioh_ARFix.ini",
       "ini_resolution": [{"section": "Resolution", "width": "Width", "height": "Height", "kind": "pixels"}],
       "display_tags": ["launcher-1920x1080-high"],
+      "wine_dll_overrides": ["dinput8=n,b"]
+    },
+    {
+      "id": "one-piece-pirate-warriors-3",
+      "name": "ONE PIECE PIRATE WARRIORS 3 - Custom Aspect Ratio",
+      "steam_app_id": "331600",
+      "install_dir": "OPPW3",
+      "executable": "oppw3.exe",
+      "source": {
+        "kind": "archive",
+        "path": "ONE PIECE PIRATE WARRIORS 3/One-Piece-Pirate-Warriors-3-v1.0.0.zip",
+        "sha256": "c0dd9642cb39c339cde47185df825ff87d29947aacbf5a31027fd7c14e4a51a8"
+      },
+      "files": ["dinput8.dll", "OPPW3_ARFix.asi", "OPPW3_ARFix.ini"],
+      "ini_file": "OPPW3_ARFix.ini",
+      "ini_resolution": [{"section": "Resolution", "width": "Width", "height": "Height", "kind": "pixels"}],
       "wine_dll_overrides": ["dinput8=n,b"]
     },
     {
@@ -667,7 +779,7 @@
         {"target": "main.pak", "backup": "main.pak.pvz-original.bak"}
       ],
       "ini_file": null,
-      "display_tags": ["4x3-to-16x9-fix", "must-read-readme"],
+      "display_tags": ["4x3-to-16x9-fix", "back-up-save-file-first", "must-read-readme"],
       "wine_dll_overrides": [],
       "credits": [
         {
@@ -695,32 +807,20 @@
       ]
     },
     {
-      "id": "hades-hephaistos",
-      "name": "Hades - Hephaistos Aspect Ratio Fix",
+      "id": "hades",
+      "name": "Hades - Custom Aspect Ratio",
       "steam_app_id": "1145360",
       "install_dir": "Hades",
       "executable": "x64/Hades.exe",
       "executable_alternatives": ["x64Vk/Hades.exe"],
       "source": {
         "kind": "archive",
-        "path": "external/NicolasBusseneau/Hephaistos/hephaistos-linux.zip",
-        "sha256": "6bc30941bfb4431a97fbe6ab1dd40fc102ca153a96af74bdad705296c2519050"
+        "path": "Hades/Hades-v1.0.0.zip",
+        "sha256": "afca87134770fd940729e141523f8ad35922eca05109130eeda2bebf4c643c2e"
       },
-      "files": ["hephaistos", "Hephaistos-README.md"],
-      "ini_file": null,
-      "display_tags": ["manual-setup"],
-      "wine_dll_overrides": [],
-      "credits": [
-        {
-          "name": "Nicolas Busseneau",
-          "support": [
-            {
-              "label": "Hades",
-              "url": "https://github.com/nbusseneau/hephaistos"
-            }
-          ]
-        }
-      ]
+      "files": ["x64/winmm.dll", "x64/Hades_ARFix.asi", "x64/Hades_ARFix.ini", "x64Vk/winmm.dll", "x64Vk/Hades_ARFix.asi", "x64Vk/Hades_ARFix.ini"],
+      "ini_file": "x64Vk/Hades_ARFix.ini",
+      "wine_dll_overrides": ["winmm=n,b"]
     },
     {
       "id": "ori-and-the-will-of-the-wisps",
@@ -805,13 +905,12 @@
       "executable": "Rayman Legends.exe",
       "source": {
         "kind": "archive",
-        "path": "Rayman Legends/Rayman-Legends-v1.0.0.zip",
-        "sha256": "b968fbc97b09c1503c3df86806d292111aedc071d85081ecf519ec179b85f3a1"
+        "path": "Rayman Legends/Rayman-Legends-v2.0.0.zip",
+        "sha256": "ea7ae65dea93109b7e585078573f0940a07cc714b3aad885c6d2ec9be8c7a1cd"
       },
       "files": ["dinput8.dll", "RaymanLegends_ARFix.asi", "RaymanLegends_ARFix.ini"],
       "ini_file": "RaymanLegends_ARFix.ini",
       "ini_resolution": [{"section": "Resolution", "width": "Width", "height": "Height", "kind": "pixels"}],
-      "display_tags": ["stretch"],
       "wine_dll_overrides": ["dinput8=n,b"]
     },
     {
@@ -854,8 +953,8 @@
       "executable": "DevilMayCry4SpecialEdition.exe",
       "source": {
         "kind": "archive",
-        "path": "Devil May Cry 4 Special Edition/Devil-May-Cry-4-Special-Edition-v1.0.1.zip",
-        "sha256": "72fd22cad81d7b4733aaee2c3158af4ea9258c433174ee61c78858fe1a19b737"
+        "path": "Devil May Cry 4 Special Edition/Devil-May-Cry-4-Special-Edition-v1.0.2.zip",
+        "sha256": "cd97f4d90bc92c86b038c450a750286737f01ca4e756e90f7b1b4d2246447226"
       },
       "files": ["dinput8.dll", "DevilMayCry4SpecialEdition_ARFix.asi", "DevilMayCry4SpecialEdition_ARFix.ini"],
       "ini_file": "DevilMayCry4SpecialEdition_ARFix.ini",
@@ -1153,6 +1252,54 @@
       "wine_dll_overrides": ["dxgi=n,b"]
     },
     {
+      "id": "samurai-warriors-4-dx",
+      "name": "SAMURAI WARRIORS 4 DX - Custom Aspect Ratio",
+      "steam_app_id": "2719200",
+      "install_dir": "SAMURAI WARRIORS 4 DX",
+      "executable": "SamuraiWarriors4DX.exe",
+      "source": {
+        "kind": "archive",
+        "path": "SAMURAI WARRIORS 4 DX/Samurai-Warriors-4-DX-v1.0.0.zip",
+        "sha256": "ae08175271e9ba265dc9e204910b23c90e419251956a6836884e3f56bb228bb8"
+      },
+      "files": ["dinput8.dll", "SW4DX_ARFix.asi", "SW4DX_ARFix.ini"],
+      "ini_file": "SW4DX_ARFix.ini",
+      "ini_resolution": [{"section": "Resolution", "width": "Width", "height": "Height", "kind": "pixels"}],
+      "wine_dll_overrides": ["dinput8=n,b"]
+    },
+    {
+      "id": "samurai-warriors-4-ii",
+      "name": "SAMURAI WARRIORS 4-II - Custom Aspect Ratio",
+      "steam_app_id": "348470",
+      "install_dir": "SAMURAI WARRIORS 4-II",
+      "executable": "SW4II.exe",
+      "source": {
+        "kind": "archive",
+        "path": "SAMURAI WARRIORS 4-II/Samurai-Warriors-4-II-v1.0.0.zip",
+        "sha256": "58c728c5148e1edabbfd2b7e39cc016013c44b1baf353fc3d40feccc69871290"
+      },
+      "files": ["dinput8.dll", "SW4II_ARFix.asi", "SW4II_ARFix.ini"],
+      "ini_file": "SW4II_ARFix.ini",
+      "ini_resolution": [{"section": "Resolution", "width": "Width", "height": "Height", "kind": "pixels"}],
+      "wine_dll_overrides": ["dinput8=n,b"]
+    },
+    {
+      "id": "samurai-warriors-5",
+      "name": "SAMURAI WARRIORS 5 - Custom Aspect Ratio",
+      "steam_app_id": "1591530",
+      "install_dir": "SAMURAI WARRIORS 5",
+      "executable": "SW5.exe",
+      "source": {
+        "kind": "archive",
+        "path": "SAMURAI WARRIORS 5/Samurai-Warriors-5-v1.0.0.zip",
+        "sha256": "0cd549ad5365a21b058f8a7146f4d39caca637d369fa9679a1b73cdfb1c943e0"
+      },
+      "files": ["dinput8.dll", "SW5_ARFix.asi", "SW5_ARFix.ini"],
+      "ini_file": "SW5_ARFix.ini",
+      "ini_resolution": [{"section": "Resolution", "width": "Width", "height": "Height", "kind": "pixels"}],
+      "wine_dll_overrides": ["dinput8=n,b"]
+    },
+    {
       "id": "samurai-warriors-spirit-of-sanada",
       "name": "SAMURAI WARRIORS: Spirit of Sanada - Custom Aspect Ratio",
       "steam_app_id": "595740",
@@ -1160,8 +1307,8 @@
       "executable": "SWSanada.exe",
       "source": {
         "kind": "archive",
-        "path": "Samurai Warriors Spirit of Sanada/Samurai-Warriors-Spirit-of-Sanada-v1.1.0.zip",
-        "sha256": "2808e2574084b8737c9b4a9deb9df66416d0a7d4767acdb28265bd801a4892d2"
+        "path": "Samurai Warriors Spirit of Sanada/Samurai-Warriors-Spirit-of-Sanada-v1.2.1.zip",
+        "sha256": "60aa237d6e0f1734160a0447fb4ab96bbb802ba04bf90b6a2fd9cf97d5eaaaad"
       },
       "files": ["dinput8.dll", "SWSanada_ARFix.asi", "SWSanada_ARFix.ini"],
       "ini_file": "SWSanada_ARFix.ini",
@@ -1200,8 +1347,8 @@
       "executable": "WO4.exe",
       "source": {
         "kind": "archive",
-        "path": "Warriors Orochi 4 Ultimate/Warriors-Orochi-4-Ultimate-v1.2.0.zip",
-        "sha256": "9c2d0432f1b4e0c98831bf29172d68cf8cb40d4e45bf6fb3485c9e5d1e599e77"
+        "path": "Warriors Orochi 4 Ultimate/Warriors-Orochi-4-Ultimate-v1.3.0.zip",
+        "sha256": "93705b3d2933821b125baecde6e3faaced482683c84815b9e8d48ad84e9b18be"
       },
       "files": ["dinput8.dll", "WO4U_ARFix.asi", "WO4U_ARFix.ini"],
       "ini_file": "WO4U_ARFix.ini",
@@ -2219,42 +2366,21 @@
       "ini_file": "SHfFix.ini"
     },
     {
-      "id": "crossworldsfix",
-      "name": "Sonic Racing: CrossWorlds - CrossWorldsFix",
+      "id": "sonic-racing-crossworlds",
+      "name": "Sonic Racing: CrossWorlds - Custom Aspect Ratio",
       "steam_app_id": "2486820",
       "install_dir": "SonicRacingCrossWorlds",
-      "executable": "SonicRacingCrossWorlds.exe",
+      "executable": "UNION/Binaries/Win64/SonicRacingCrossWorldsSteam.exe",
+      "executable_alternatives": ["SonicRacingCrossWorlds.exe"],
       "source": {
         "kind": "archive",
-        "path": "external/Lyall/CrossWorldsFix/CrossWorldsFix_0.0.3.zip",
-        "sha256": "1cd5ed2d7ce6a8b4dfc9d47b7cb38b69a3a94ef437da54d4ee6b380665d31c13"
+        "path": "Sonic Racing CrossWorlds/Sonic-Racing-CrossWorlds-v1.0.0.zip",
+        "sha256": "95a4b06f683408d9d200f1e52ce7e4ec9efc35ff6d098bec4a6902a36de6137d",
+        "destination": "UNION/Binaries/Win64"
       },
-      "files": [
-        "CrossWorldsFix.asi",
-        "CrossWorldsFix.ini",
-        "winmm.dll"
-      ],
-      "display_tags": ["may-be-outdated-report-to-lyall"],
-      "wine_dll_overrides": [
-        "winmm=n,b"
-      ],
-      "credits": [
-        {
-          "name": "Lyall",
-          "url": "https://codeberg.org/Lyall",
-          "support": [
-            {
-              "label": "Patreon",
-              "url": "https://www.patreon.com/Wintermance"
-            },
-            {
-              "label": "Ko-fi",
-              "url": "https://ko-fi.com/W7W01UAI9"
-            }
-          ]
-        }
-      ],
-      "ini_file": "CrossWorldsFix.ini"
+      "files": ["UNION/Binaries/Win64/winmm.dll", "UNION/Binaries/Win64/CrossWorlds_ARFix.asi", "UNION/Binaries/Win64/CrossWorlds_ARFix.ini"],
+      "ini_file": "UNION/Binaries/Win64/CrossWorlds_ARFix.ini",
+      "wine_dll_overrides": ["winmm=n,b"]
     },
     {
       "id": "sky1stchapterfix",
@@ -6600,38 +6726,6 @@
       "display_tags": ["stretch"]
     },
     {
-      "id": "mhw16x10fix",
-      "name": "Monster Hunter: World - MHW16x10Fix",
-      "steam_app_id": "582010",
-      "install_dir": "Monster Hunter World",
-      "executable": "MonsterHunterWorld.exe",
-      "source": {
-        "kind": "archive",
-        "path": "external/MinuteReversal/MHW16x10Fix/MHW16x10Fix_0.11.13.zip",
-        "sha256": "384af688974d178db4f27ad7df7eb02810c124f3dc3e728ddfbf5545207d867d"
-      },
-      "files": [
-        "dinput8.dll",
-        "mhw_16x10.ini"
-      ],
-      "wine_dll_overrides": [
-        "dinput8=n,b"
-      ],
-      "credits": [
-        {
-          "name": "MinuteReversal",
-          "support": [
-            {
-              "label": "MHW 16:10",
-              "url": "https://github.com/MinuteReversal/MHW16x10Fix"
-            }
-          ]
-        }
-      ],
-      "ini_file": "mhw_16x10.ini",
-      "ini_resolution": [{"section": "Fix", "width": "Width", "height": "Height", "kind": "pixels"}]
-    },
-    {
       "id": "kingdom-hearts-hd-1-5-2-5-remix-keyblade-masters-ultrawide",
       "name": "KINGDOM HEARTS -HD 1.5+2.5 ReMIX- - Keyblade Masters Ultrawide",
       "steam_app_id": "2552430",
@@ -6736,79 +6830,6 @@
       ]
     },
     {
-      "id": "final-fantasy-x-x2-hd-remaster-suwsf",
-      "name": "FINAL FANTASY X/X-2 HD Remaster - SUWSF Widescreen Patches",
-      "steam_app_id": "359870",
-      "install_dir": "FINAL FANTASY FFX&FFX-2 HD Remaster",
-      "executable": "FFX&X-2_LAUNCHER.exe",
-      "executable_alternatives": ["FFX.exe", "FFX-2.exe"],
-      "source": {
-        "kind": "archive",
-        "path": "external/Kamiccolo/Final Fantasy X-X2 HD Remaster SUWSF/Final Fantasy XX-2 HD Remaster 2560x1080 64x27 SUWSF.zip",
-        "sha256": "2d93c08ba9a8ad8f591be8a471cd883a7c8e847f1a9874fba43cf5ae5388e680"
-      },
-      "files": [
-        "d3d11.dll",
-        "SUWSF.asi",
-        "SUWSF.ini",
-        "LICENSE"
-      ],
-      "ini_file": "SUWSF.ini",
-      "ini_resolution_strings": [{"section": "UserSettings", "key": "Resolution"}],
-      "wine_dll_overrides": [
-        "d3d11=n,b"
-      ],
-      "credits": [
-        {
-          "name": "Kamiccolo",
-          "support": [
-            {
-              "label": "FFX/X-2",
-              "url": "https://community.pcgamingwiki.com/files/file/2432-final-fantasy-xx-2-hd-remaster-anima-edition/"
-            },
-            {
-              "label": "Ko-fi",
-              "url": "https://ko-fi.com/kamiccolo"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "final-fantasy-resonance-ultrawide",
-      "name": "FINAL FANTASY RESONANCE - Ultrawide Mod",
-      "steam_app_id": "3259780",
-      "install_dir": "FINAL FANTASY RESONANCE",
-      "executable": "FFRS.exe",
-      "source": {
-        "kind": "archive",
-        "path": "external/Refilo/FFResonance Ultrawide/FFResonance Ultrawide 2.6.3 29 2.6.3 2026-11-06T22-52Z ukvcoplGf.zip",
-        "sha256": "97ea5c76f481eba09e823a8c0929fc74580c3ee62959ef91f44495463fcc043a",
-        "destination": "FFRS/Binaries/Win64"
-      },
-      "files": [
-        "FFRS/Binaries/Win64/winmm.dll",
-        "FFRS/Binaries/Win64/refilomod/core/core_002_004.dll",
-        "FFRS/Binaries/Win64/refilomod/ultrawide/ultrawide.dll",
-        "FFRS/Binaries/Win64/refilomod/ultrawide/FFRS_UW.ini"
-      ],
-      "ini_file": "FFRS/Binaries/Win64/refilomod/ultrawide/FFRS_UW.ini",
-      "wine_dll_overrides": [
-        "winmm=n,b"
-      ],
-      "credits": [
-        {
-          "name": "Refilo",
-          "support": [
-            {
-              "label": "FF Resonance",
-              "url": "https://www.nexusmods.com/finalfantasyresonance/mods/29"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "id": "hollow-knight-silksong-ultra-wide",
       "name": "Hollow Knight: Silksong - Ultra-Wide",
       "steam_app_id": "1030300",
@@ -6907,6 +6928,39 @@
             {
               "label": "Hollow Knight/Silksong",
               "url": "https://github.com/p1xel8ted/UltrawideFixes"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "author_downloads": [
+    {
+      "id": "final-fantasy-x-x2-hd-remaster-suwsf",
+      "name": "FINAL FANTASY X/X-2 HD Remaster - SUWSF Widescreen Patches",
+      "steam_app_id": "359870",
+      "install_dir": "FINAL FANTASY FFX&FFX-2 HD Remaster",
+      "executable": "FFX&X-2_LAUNCHER.exe",
+      "executable_alternatives": ["FFX.exe", "FFX-2.exe"],
+      "source": {
+        "kind": "author_download",
+        "page": "https://community.pcgamingwiki.com/files/file/2432-final-fantasy-xx-2-hd-remaster-anima-edition/"
+      },
+      "files": ["d3d11.dll", "SUWSF.asi", "SUWSF.ini", "LICENSE"],
+      "ini_file": "SUWSF.ini",
+      "ini_resolution_strings": [{"section": "UserSettings", "key": "Resolution", "replace_auto": true}],
+      "wine_dll_overrides": ["d3d11=n,b"],
+      "credits": [
+        {
+          "name": "Kamiccolo",
+          "support": [
+            {
+              "label": "FFX/X-2",
+              "url": "https://community.pcgamingwiki.com/files/file/2432-final-fantasy-xx-2-hd-remaster-anima-edition/"
+            },
+            {
+              "label": "Ko-fi",
+              "url": "https://ko-fi.com/kamiccolo"
             }
           ]
         }

@@ -3,7 +3,7 @@ import type { SupportedGameReport, PluginSettingsInfo, PluginUpdateInfo, Credits
 
 // Must match "name" in plugin.json and PLUGIN_NAME in helper/__init__.py.
 export const PLUGIN_NAME = "AnyAspectRatio";
-export const PLUGIN_VERSION = "2.1";
+export const PLUGIN_VERSION = "2.2";
 
 export const DEFAULT_PICKER_DIRECTORY = "/home/deck/Downloads";
 
@@ -61,8 +61,12 @@ export const getCredits = callable<[], CreditsInfo>("get_credits");
 
 export const importOfflinePack = callable<[string], { warning?: string | null }>("import_offline_pack");
 
+export const importAuthorDownload = callable<[string, string], Record<string, never>>("import_author_download");
 
-export const clearLocalData = callable<[], Record<string, never>>("clear_local_data");
+export const getDownloadsFolder = callable<[], string>("get_downloads_folder");
+
+
+export const clearLocalData = callable<[boolean, boolean, boolean], Record<string, never>>("clear_local_data");
 
 export const setModApplied = callable<
   [string, string, boolean, boolean | null, boolean | null],
